@@ -4,12 +4,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:worldtimeapi/splash.dart';
 import 'constants/themes.dart';
 import 'database/theme_mode_provider.dart';
+import 'services/world_time_services.dart';
 
 void main() {
   SharedPreferences.setMockInitialValues({});
   runApp(
       MultiProvider(
         providers: [
+          Provider<WorldTimeServices>(create: (context) => WorldTimeServices()),
           ChangeNotifierProvider<ThemeModeProvider>(create: (context) => ThemeModeProvider()),
         ],
         child: const MyApp(),
