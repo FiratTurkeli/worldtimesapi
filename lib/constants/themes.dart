@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 ThemeData lightTheme = ThemeData(
-  scaffoldBackgroundColor: lightbg,
-  textTheme: const TextTheme(bodyText2: TextStyle(color: dark)),
-  cardColor: lightblue,
+  scaffoldBackgroundColor: myWhite,
+  textTheme: const TextTheme(bodyText2: TextStyle(color: myDarkBlue)),
+  cardColor: myLightBlue,
   dialogBackgroundColor: white,
-  canvasColor: dark,
+  canvasColor: myDarkBlue,
 );
 
 ThemeData darkTheme = ThemeData(
-  scaffoldBackgroundColor: dark,
+  scaffoldBackgroundColor: myDarkBlue,
   textTheme: const TextTheme(bodyText2: TextStyle(color: white),),
-  cardColor: dark2,
-  dialogBackgroundColor: dark2,
+  cardColor: mySecondDarkBlue,
+  dialogBackgroundColor: mySecondDarkBlue,
 );

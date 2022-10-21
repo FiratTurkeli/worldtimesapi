@@ -21,9 +21,7 @@ class SecondView extends SecondViewModel {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SecondViewHeader(theme: Theme.of(context).textTheme.bodyText2?.color ),
-            selectedtime == null
-                ? Center(child:CircularProgressIndicator(color: Theme.of(context).textTheme.bodyText2!.color,) ,)
-            :SecondViewBody(worldTime: selectedtime,),
+            SecondViewBody(worldTime: selectedtime,),
           ],
         ),
       );

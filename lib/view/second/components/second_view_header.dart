@@ -48,7 +48,7 @@ class _SecondViewHeaderState extends State<SecondViewHeader> {
     );
   }
   Widget title(){
-    String color = widget.theme == dark ? "dark" : "white" ;
+    String color = widget.theme == myDarkBlue ? "dark" : "white" ;
     return Positioned(
         top: 71,
         bottom: 24,

@@ -26,10 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
         toolbarHeight: 0,
         elevation: 0,
         systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: dark
+            statusBarColor: myDarkBlue
         ),
       ),
-      backgroundColor: dark,
+      backgroundColor: myDarkBlue,
       body: Center(
         child: Image.asset("images/DOP.png"),
       ),

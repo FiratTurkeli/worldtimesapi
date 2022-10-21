@@ -22,14 +22,14 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
             height: 199, // <--- app bar height in mobile view
             child: Stack(
               children: [
-                goodMorningMessage(),
-                localTime(),
-                currentDate(),
-                themeChangerButton(context),
+                buildGoodMorningMessage(),
+                buildLocalTime(),
+                buildCurrentDate(),
+                buildThemeButton(context),
               ],
             ),
           ),
-          searchBar()
+          buildSearchBar()
 
         ],
       ),
@@ -37,7 +37,7 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
   }
 
 
-  Widget goodMorningMessage() {
+  Widget buildGoodMorningMessage() {
     return Positioned(
         left: 33,
         top: 69,
@@ -46,7 +46,7 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
     );
   }
 
-  Widget localTime() {
+  Widget buildLocalTime() {
     return Positioned(
         top: 92,
         bottom: 69,
@@ -56,7 +56,7 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
     );
   }
 
-  Widget currentDate() {
+  Widget buildCurrentDate() {
     var date = DateTime.now();
     return Positioned(
         top: 136,
@@ -67,7 +67,7 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
     );
   }
 
-  Widget searchBar() {
+  Widget buildSearchBar() {
     return Positioned(
       top: 177,
       right: 33,
@@ -81,15 +81,15 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
                 color: white,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(99),
-                border: Border.all(color: strokeblue, width: 1)
+                border: Border.all(color: myStrokeBlue, width: 1)
             ),
-            child: searchIcon()
+            child: buildSearchIcon()
         ),
       ),
     );
   }
 
-  Widget searchIcon(){
+  Widget buildSearchIcon(){
     return Row(
       children: const [
         Padding(
@@ -103,7 +103,8 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
       ],
     );
   }
-  Widget themeChangerButton(BuildContext context){
+
+  Widget buildThemeButton(BuildContext context){
     final themeProvider = Provider.of<ThemeModeProvider>(context, listen: false);
     return Positioned(
       right:33,
@@ -114,7 +115,7 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
         key: Key(Theme.of(context).brightness.toString()),
         child: GestureDetector(
                 onTap: (){
-                  themeProvider.toggleTheme(Theme.of(context).scaffoldBackgroundColor == dark ? false : true);
+                  themeProvider.toggleTheme(Theme.of(context).scaffoldBackgroundColor == myDarkBlue ? false : true);
                   print("theme changed");
                   setState((){
 
@@ -126,12 +127,12 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
                         height: 40,
                         decoration: BoxDecoration(
                             color: Theme.of(context).textTheme.bodyText2?.color,
-                            border: Border.all(color: strokeblue, width: 2),
+                            border: Border.all(color: myStrokeBlue, width: 2),
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(20)
                         ),
 
-                        child: Theme.of(context).scaffoldBackgroundColor == dark ?
+                        child: Theme.of(context).scaffoldBackgroundColor == myDarkBlue ?
                         Icon(Icons.wb_sunny_outlined, color: Theme.of(context).cardColor,)
                             :Icon(Icons.nightlight_outlined, color: Theme.of(context).cardColor,)
                     ),

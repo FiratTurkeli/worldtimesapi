@@ -19,18 +19,17 @@ class _SecondViewBodyState extends State<SecondViewBody> {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
       margin: EdgeInsets.only(top: 50),
       height: 450,
       child: Stack(
         children: [
-          positionedTimeContainer1(),
-          points(),
-          positionedTimeContainer2(),
-          countryInfo(),
-          gmtInfo(),
+          buildHourContainer(),
+          buildPoints(),
+          buildMinuteContainer(),
+          buildCountryInfo(),
+          buildGmtInfo(),
         ],
       ),
     );
@@ -38,40 +37,40 @@ class _SecondViewBodyState extends State<SecondViewBody> {
 
 
 
-  Widget positionedTimeContainer1(){
+  Widget buildHourContainer(){
     final line = widget.worldTime?.utcDatetime.toString();
     DateTime x = DateTime.parse(line!);
     return Positioned(
         left: 45,
-        child: timeContainer(checkNum(x.hour) ?? "xx")
+        child: buildTimeContainer(checkNum(x.hour) ?? "xx")
     );
   }
 
 
-  Widget positionedTimeContainer2(){
+  Widget buildMinuteContainer(){
     final line = widget.worldTime?.utcDatetime.toString();
     DateTime x = DateTime.parse(line!);
     return Positioned(
         right: 45,
-        child: timeContainer(checkNum(x.minute) ?? "xx")
+        child: buildTimeContainer(checkNum(x.minute) ?? "xx")
     );
   }
 
 
-  Widget points(){
+  Widget buildPoints(){
     return Center(
         heightFactor: 1.3,
         child: Text(":", style: bigTimeStyle.copyWith(color: Theme.of(context).canvasColor), textAlign: TextAlign.center,));
   }
 
-  Widget timeContainer(String data){
+  Widget buildTimeContainer(String data){
     return  Container(
       width: 140,
       height: 140,
       decoration: BoxDecoration(
           color: Theme.of(context).dialogBackgroundColor,
           borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: dark, width: 2)
+        border: Border.all(color: myDarkBlue, width: 2)
       ),
       child: Center(child: Text(data , style: bigTimeStyle.copyWith(color: Theme.of(context).canvasColor),),),
     );
@@ -79,7 +78,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
 
 
 
-  Widget countryInfo(){
+  Widget buildCountryInfo(){
     String line =  widget.worldTime!.timezone.toString();
     String country = line.characters.contains("/") == false  ? line : widget.worldTime!.timezone.toString().split("/")[1];
     String kita = line.characters.contains("/") == false  ? line :widget.worldTime!.timezone.toString().split("/")[0];
@@ -98,7 +97,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   }
 
 
-  Widget gmtInfo(){
+  Widget buildGmtInfo(){
     return Container(
       margin: EdgeInsets.only(top: 243),
       child: Center(

@@ -22,36 +22,14 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           child: Stack(
             alignment: Alignment.centerRight,
               children: [
-                listContainer(),
-                goButton(),
+                buildTimeLists(),
+                buildnNextButton(),
           ]))
     );
   }
 
 
-  Widget searchBar() {
-    return Positioned(
-      top: -22,
-      right: 33,
-      left: 33,
-      child: Padding(
-        padding: const  EdgeInsets.only(bottom: 10),
-        child: Container(
-            width: double.infinity,
-            height: 44,
-            decoration: BoxDecoration(
-                color: white,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(99),
-                border: Border.all(color: strokeblue, width: 1)
-            ),
-            //child: searchIcon()
-        ),
-      ),
-    );
-  }
-
-  Widget listContainer(){
+  Widget buildTimeLists(){
     return Container(
       margin: const EdgeInsets.only(right: 33, top: 10, left: 33),
       width: double.infinity,
@@ -67,7 +45,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 
-  Widget goButton(){
+  Widget buildnNextButton(){
     return Positioned(
       bottom: 11,
       right: 15,
