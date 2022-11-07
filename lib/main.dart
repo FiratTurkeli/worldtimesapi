@@ -12,7 +12,7 @@ void main() {
       MultiProvider(
         providers: [
           Provider<WorldTimeServices>(create: (context) => WorldTimeServices()),
-          ChangeNotifierProvider<ThemeModeProvider>(create: (context) => ThemeModeProvider()),
+          ChangeNotifierProvider<ThemeModeProvider>(create: (context) => ThemeModeProvider()), // home_view_header.dart line:120
         ],
         child: const MyApp(),
       ));

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
+// project text styles found in figma file
 TextStyle gmStyle = GoogleFonts.montserrat( fontSize: 15, fontWeight: FontWeight.w600);
 TextStyle timeStyle = GoogleFonts.montserrat( fontSize: 32, fontWeight: FontWeight.w600);
 TextStyle dateStyle = GoogleFonts.montserrat( fontSize: 15, fontWeight: FontWeight.w600);

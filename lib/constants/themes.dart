@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
+
+// Light and dark theme data
+
 ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: myWhite,
   textTheme: const TextTheme(bodyText2: TextStyle(color: myDarkBlue)),

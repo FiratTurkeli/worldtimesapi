@@ -20,7 +20,7 @@ abstract class SecondViewModel extends State<Second>{
   }
 
   void getSelectedTime() async {
-    selectedtime = await context.read<WorldTimeServices>().selectedTime(time!);
+    selectedtime = await context.read<WorldTimeServices>().selectedTimeZone(time!);
     setState((){
       selectedtime;
     });

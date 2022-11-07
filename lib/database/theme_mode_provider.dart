@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeModeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.system;
 
-  // function to fetch darkmode or lightmode
+  // function to fetch dark mode or light mode
   bool get isDarkMode {
     if (themeMode == ThemeMode.system) {
       final brightness = SchedulerBinding.instance.window.platformBrightness;
