@@ -26,12 +26,12 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   Widget build(BuildContext context) {
     screenHeight = Dimensions().getScreenHeight(context);
     screenWidth = Dimensions().getScreenWidth(context);
-    containerHeight = Dimensions().getScreenHeight(context)*(140/812);
-    containerWidth =  Dimensions().getScreenWidth(context)*(140/375);
+    containerHeight = Dimensions().getScreenHeight(context)*(140/812); // The proportions of the dimensions given in the figma file
+    containerWidth =  Dimensions().getScreenWidth(context)*(140/375); // The proportions of the dimensions given in the figma file
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        buildContainer(),
+        buildBodyBackground(),
         buildHourContainer(),
         buildPoint1(),
         buildPoint2(),
@@ -42,20 +42,22 @@ class _SecondViewBodyState extends State<SecondViewBody> {
     );
   }
 
-  Widget buildContainer(){
+  //Second view body background
+  Widget buildBodyBackground(){
     return Container(
-        height: screenHeight*(701/812),
+        height: screenHeight*(701/812), // The proportions of the dimensions given in the figma file
     width: screenWidth,
     color: Theme.of(context).scaffoldBackgroundColor,);
   }
 
+  //container showing the hour
   Widget buildHourContainer(){
     final line = widget.worldTime?.utcDatetime.toString();
     DateTime x = DateTime.parse(line!);
     return Positioned(
-        left: screenWidth*(33/375),
-        right: screenWidth*(202/375),
-        top: screenHeight*(161/812),
+        left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+        right: screenWidth*(202/375), // The proportions of the dimensions given in the figma file
+        top: screenHeight*(161/812), // The proportions of the dimensions given in the figma file
        // bottom: screenHeight*(511/701),
       child: Container(
             width: containerWidth,
@@ -74,13 +76,14 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   }
 
 
+  //container showing the minute
   Widget buildMinuteContainer(){
     final line = widget.worldTime?.utcDatetime.toString();
     DateTime x = DateTime.parse(line!);
     return Positioned(
-        left: screenWidth*(202/375),
-        right: screenWidth*(33/375),
-        top: screenHeight*(161/812),
+        left: screenWidth*(202/375), // The proportions of the dimensions given in the figma file
+        right: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+        top: screenHeight*(161/812), // The proportions of the dimensions given in the figma file
         //bottom: screenHeight*(511/701),
       child: Container(
         width: containerWidth,
@@ -97,15 +100,16 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   }
 
 
+  // points between minutes and hours
   Widget buildPoint1(){
     return Positioned(
-        top: screenHeight*(216/812),
+        top: screenHeight*(216/812), // The proportions of the dimensions given in the figma file
         //bottom: screenHeight*(587/701),
-        right: screenWidth*(183/375),
-        left: screenWidth*(183/375),
+        right: screenWidth*(183/375), // The proportions of the dimensions given in the figma file
+        left: screenWidth*(183/375), // The proportions of the dimensions given in the figma file
       child: Container(
-        width: screenWidth*(9/375),
-        height: screenHeight*(9/375),
+        width: screenWidth*(9/375), // The proportions of the dimensions given in the figma file
+        height: screenHeight*(9/375), // The proportions of the dimensions given in the figma file
         decoration: BoxDecoration(
           shape: BoxShape.circle,
             color: Theme.of(context).canvasColor
@@ -114,15 +118,16 @@ class _SecondViewBodyState extends State<SecondViewBody> {
     );
   }
 
+  //points between minutes and hours
   Widget buildPoint2(){
     return Positioned(
-        top: screenHeight*(241/812),
+        top: screenHeight*(241/812), // The proportions of the dimensions given in the figma file
         //bottom: screenHeight*(562/701),
-        right: screenWidth*(183/375),
-        left: screenWidth*(183/375),
+        right: screenWidth*(183/375), // The proportions of the dimensions given in the figma file
+        left: screenWidth*(183/375), // The proportions of the dimensions given in the figma file
       child: Container(
-        width: screenWidth*(9/375),
-        height: screenHeight*(9/375),
+        width: screenWidth*(9/375), // The proportions of the dimensions given in the figma file
+        height: screenHeight*(9/375), // The proportions of the dimensions given in the figma file
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Theme.of(context).canvasColor
@@ -133,6 +138,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   }
 
 
+  // country info shown in figma file
   Widget buildCountryInfo(){
     //get timezone
     String timezone =  widget.worldTime!.timezone.toString();
@@ -141,10 +147,10 @@ class _SecondViewBodyState extends State<SecondViewBody> {
     // split timezone of continent
     String continent = timezone.characters.contains("/") == false  ? timezone :widget.worldTime!.timezone.toString().split("/")[0];
     return Positioned(
-      top: screenHeight*(329/812),
+      top: screenHeight*(329/812), // The proportions of the dimensions given in the figma file
       //bottom: screenHeight*(418/701),
-      right: screenWidth*(139/375),
-      left: screenWidth*(140/375),
+      right: screenWidth*(139/375), // The proportions of the dimensions given in the figma file
+      left: screenWidth*(140/375), // The proportions of the dimensions given in the figma file
        child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,
          children: [
@@ -156,6 +162,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
   }
 
 
+  //gmt info shown in figma file
   Widget buildGmtInfo(){
     // utcDateTime for parsing
     final utcDateTime = widget.worldTime?.utcDatetime.toString();
@@ -168,10 +175,10 @@ class _SecondViewBodyState extends State<SecondViewBody> {
     // month of date
     String month = date.toString().split(" ")[1];
     return Positioned(
-      top: screenHeight*(404/812),
+      top: screenHeight*(404/812), // The proportions of the dimensions given in the figma file
       //bottom: screenHeight*(381/701),
-      right: screenWidth*(82/375),
-      left: screenWidth*(82/375),
+      right: screenWidth*(82/375), // The proportions of the dimensions given in the figma file
+      left: screenWidth*(82/375), // The proportions of the dimensions given in the figma file
       child: Container(
         child: Center(
           child: Column(

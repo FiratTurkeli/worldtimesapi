@@ -17,13 +17,15 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting('tr');
-    appBarHeight = Dimensions().getScreenHeight(context)*(199/812);
-    searchBarHeight = Dimensions().getScreenHeight(context)*(44/812);
-    searchBarWidth = Dimensions().getScreenWidth(context)*(309/44);
+    appBarHeight = Dimensions().getScreenHeight(context)*(199/812); // The proportions of the dimensions given in the figma file
+    searchBarHeight = Dimensions().getScreenHeight(context)*(44/812); // The proportions of the dimensions given in the figma file
+    searchBarWidth = Dimensions().getScreenWidth(context)*(309/44); // The proportions of the dimensions given in the figma file
     screenHeight = Dimensions().getScreenHeight(context);
     screenWidth = Dimensions().getScreenWidth(context);
     return SizedBox(
-      height: appBarHeight + searchBarHeight/2,  // 199 + 22 (half of search bar because of search bar location)
+      height: appBarHeight + searchBarHeight/2,
+      // 199 + 22 (half of search bar because of search bar location)
+      // According to the app bar size given in the figma file, the appbar should be half as long as the search bar.
       child: Stack(
         alignment: Alignment.topCenter,
         clipBehavior: Clip.antiAlias,
@@ -52,10 +54,10 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
   //good morning message in figma file
   Widget buildGoodMorningMessage() {
     return Positioned(
-        left: screenWidth*(33/375),
-        top: appBarHeight*(69/199),
-        bottom: appBarHeight*(112/199),
-        right: screenWidth*(212/375),
+        left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+        top: appBarHeight*(69/199), // The proportions of the dimensions given in the figma file
+        bottom: appBarHeight*(112/199), // The proportions of the dimensions given in the figma file
+        right: screenWidth*(212/375), // The proportions of the dimensions given in the figma file
         child: Text("Günaydın, Özgür", style: gmStyle,)
     );
   }
@@ -65,10 +67,10 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
     var date = DateTime.now();
     var currentHour= DateFormat('hh : mm ').format(date);
     return Positioned(
-        top: appBarHeight*(92/199),
-        bottom: appBarHeight*(68/199),
-        left: screenWidth*(33/375),
-        right: screenWidth*(236/375),
+        top: appBarHeight*(92/199), // The proportions of the dimensions given in the figma file
+        bottom: appBarHeight*(68/199), // The proportions of the dimensions given in the figma file
+        left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+        right: screenWidth*(236/375), // The proportions of the dimensions given in the figma file
         child: Text(currentHour.toString(), style: timeStyle,
         )
     );
@@ -82,9 +84,9 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
     String month = currentDate.toString().split(" ")[1];
     String year = currentDate.toString().split(" ")[3];
     return Positioned(
-        top: appBarHeight*(136/199),
-        bottom: appBarHeight*(45/199),
-        left: screenWidth*(33/375),
+        top: appBarHeight*(136/199), // The proportions of the dimensions given in the figma file
+        bottom: appBarHeight*(45/199), // The proportions of the dimensions given in the figma file
+        left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
         child: Text("$day $month, $year", style: dateStyle
         )
     );
@@ -93,9 +95,9 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
   // search bar in figma file
   Widget buildSearchBar() {
     return Positioned(
-      top: appBarHeight-searchBarHeight/2,
-      right: screenWidth*(33/375),
-      left: screenWidth*(33/375),
+      top: appBarHeight-searchBarHeight/2, // The proportions of the dimensions given in the figma file
+      right: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+      left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
       child: Container(
           width: searchBarWidth,
           height: searchBarHeight,
@@ -147,8 +149,8 @@ class _HomeViewHeaderState extends State<HomeViewHeader> {
                   });
                 },
                 child: Container(
-                        width: screenWidth*(41/375),
-                        height: appBarHeight*(40/199),
+                        width: screenWidth*(41/375), // The proportions of the dimensions given in the figma file
+                        height: appBarHeight*(40/199), // The proportions of the dimensions given in the figma file
                         decoration: BoxDecoration(
                             color: Theme.of(context).scaffoldBackgroundColor == myDarkBlue ? white : myDarkBlue,
                             border: Border.all(color: myStrokeBlue, width: 2),

@@ -22,12 +22,11 @@ class HomeView extends HomeViewModel {
          return Consumer<ThemeModeProvider>(
              builder: (context, provider,child) {
              return Scaffold(
-               // I just opened the app bar to configure the system overlay. here is a dimensionless app bar. The appbar I use is configured in the home view header
-                appBar: AppBar(
+               appBar: AppBar(
                   toolbarHeight: 0,
                   elevation: 0,
                   systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Theme.of(context).cardColor),
-                ),
+                ), // I just opened the app bar to configure the system overlay. here is a dimensionless app bar. The appbar I use is configured in the home view header
                 body: SingleChildScrollView(
                   child: Stack(
                       children: [

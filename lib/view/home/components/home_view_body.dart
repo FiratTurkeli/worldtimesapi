@@ -17,9 +17,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   Widget build(BuildContext context) {
     screenHeight = Dimensions().getScreenHeight(context);
     screenWidth = Dimensions().getScreenWidth(context);
-    appBarHeight = Dimensions().getScreenHeight(context)*(199/812);
+    appBarHeight = Dimensions().getScreenHeight(context)*(199/812); // The proportions of the dimensions given in the figma file
     return Padding(
-      padding: EdgeInsets.only(top: screenHeight * (241/812)),
+      padding: EdgeInsets.only(top: screenHeight * (241/812)),// The proportions of the dimensions given in the figma file
       child: ListView.builder(
           controller: ScrollController(),
           scrollDirection: Axis.vertical,
@@ -43,14 +43,14 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   //time zone container
   Widget buildTimeZoneContainer(String timeZone){
-    late double containerWidth = screenWidth*(309/375);
-    late double containerHeight = screenHeight*(54/812);
-    late double extraWidth = screenWidth*(31/375);
+    late double containerWidth = screenWidth*(309/375); // The proportions of the dimensions given in the figma file
+    late double containerHeight = screenHeight*(54/812); // The proportions of the dimensions given in the figma file
+    late double extraWidth = screenWidth*(31/375); // The proportions of the dimensions given in the figma file
     return Padding(
       padding: EdgeInsets.only(
-        top: screenHeight*(10/812) ,
-        left: screenWidth*(33/375),
-        right: screenWidth*(18/375),
+        top: screenHeight*(10/812) , // The proportions of the dimensions given in the figma file
+        left: screenWidth*(33/375), // The proportions of the dimensions given in the figma file
+        right: screenWidth*(18/375), // The proportions of the dimensions given in the figma file
       ),
       child: Stack(
         children: [
@@ -62,9 +62,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 color: Theme.of(context).cardColor
             ),
             child: Container(
-                margin:  EdgeInsets.only(  top: containerHeight * (18/54),
-                    bottom: containerHeight * (18/54),
-                    left: containerWidth * (20/309),),
+                margin:  EdgeInsets.only(  top: containerHeight * (18/54), // The proportions of the dimensions given in the figma file
+                    bottom: containerHeight * (18/54), // The proportions of the dimensions given in the figma file
+                    left: containerWidth * (20/309), // The proportions of the dimensions given in the figma file
+                 ),
                 child: Text(timeZone.toString() , style: listStyle)),
             ),
           SizedBox(
@@ -79,16 +80,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   // next button on Timezone container
   Widget buildNextButton(){
-    late double containerHeight = screenHeight*(54/812);
-    late double containerWidth = screenWidth*(309/375);
-    late double extraWidth = screenWidth*(31/375);
+    late double containerHeight = screenHeight*(54/812); // The proportions of the dimensions given in the figma file
+    late double containerWidth = screenWidth*(309/375); // The proportions of the dimensions given in the figma file
+    late double extraWidth = screenWidth*(31/375); // The proportions of the dimensions given in the figma file
     return Positioned(
-      bottom: containerHeight*(11/54),
-      top: containerHeight*(12/54),
+      bottom: containerHeight*(11/54), // The proportions of the dimensions given in the figma file
+      top: containerHeight*(12/54), // The proportions of the dimensions given in the figma file
       right: 0,
       child: Container(
-        width: containerWidth*(31/309),
-        height: containerHeight*(31/54),
+        width: containerWidth*(31/309), // The proportions of the dimensions given in the figma file
+        height: containerHeight*(31/54), // The proportions of the dimensions given in the figma file
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Theme.of(context).cardColor,

@@ -22,7 +22,7 @@ class SecondView extends SecondViewModel {
     Widget build(BuildContext context) {
       screenHeight = Dimensions().getScreenHeight(context);
       screenWidth = Dimensions().getScreenWidth(context);
-      appBarHeight = Dimensions().getScreenHeight(context)*(111/812);
+      appBarHeight = Dimensions().getScreenHeight(context)*(111/812); // The proportions of the dimensions given in the figma file
 
       return Scaffold(
         body: SizedBox(

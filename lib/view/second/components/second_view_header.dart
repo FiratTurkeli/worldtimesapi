@@ -20,21 +20,23 @@ class _SecondViewHeaderState extends State<SecondViewHeader> {
 
   @override
   Widget build(BuildContext context) {
-    appBarHeight = Dimensions().getScreenHeight(context)*(111/812);
+    appBarHeight = Dimensions().getScreenHeight(context)*(111/812); // The proportions of the dimensions given in the figma file
     screenHeight = Dimensions().getScreenHeight(context);
     screenWidth = Dimensions().getScreenWidth(context);
     return  Stack(
       clipBehavior: Clip.antiAlias,
       alignment: Alignment.topCenter,
         children: [
-          buildAppBarContainer(),
+          buildAppBarBackground(),
           buildPreviousPageButton(context),
           buildTitle()
         ],
     );
   }
 
-  Widget buildAppBarContainer(){
+
+  //appbar background
+  Widget buildAppBarBackground(){
     return Positioned(
       top: 0,
       right: 0,
@@ -56,12 +58,12 @@ class _SecondViewHeaderState extends State<SecondViewHeader> {
   // previous page button
   Widget buildPreviousPageButton(BuildContext contextt){
     return Positioned(
-      top: screenHeight*(72/812),
-      bottom: screenHeight*(726/812),
-      left: screenWidth*(38/375),
-      right: screenWidth*(323/375),
+      top: screenHeight*(72/812), // The proportions of the dimensions given in the figma file
+      bottom: screenHeight*(726/812), // The proportions of the dimensions given in the figma file
+      left: screenWidth*(38/375), // The proportions of the dimensions given in the figma file
+      right: screenWidth*(323/375), // The proportions of the dimensions given in the figma file
       child:  InkWell(
-        customBorder: CircleBorder(),
+        customBorder: const CircleBorder(),
           onTap: (){
             Navigator.of(contextt).pop();
           },
@@ -73,10 +75,13 @@ class _SecondViewHeaderState extends State<SecondViewHeader> {
   Widget buildTitle(){
     String color = widget.theme == myDarkBlue ? "dark" : "white" ;
     return Positioned(
-        top: screenHeight*(71/812),
+        top: screenHeight*(71/812), // The proportions of the dimensions given in the figma file
         //bottom: screenHeight*(725/812),
-        right: screenWidth*(113/375),
-        left: screenWidth*(113/375),
-        child: Image.asset("images/WORLDTIME${color.toString()}.png", width: screenWidth*(149/375),height: appBarHeight*(16/111),) );
+        right: screenWidth*(113/375), // The proportions of the dimensions given in the figma file
+        left: screenWidth*(113/375), // The proportions of the dimensions given in the figma file
+        child: Image.asset("images/WORLDTIME${color.toString()}.png",
+          width: screenWidth*(149/375), // The proportions of the dimensions given in the figma file
+          height: appBarHeight*(16/111),// The proportions of the dimensions given in the figma file
+        ) );
   }
 }
